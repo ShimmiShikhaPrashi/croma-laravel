@@ -95,7 +95,7 @@
                         @endif
                         
                         <div class="container mt-3">
-                            <form action="/updateGetDataID" method="post" >
+                            <form action="/updateGetDataID" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3 mt-3">
                                     <label for="title">Title:</label>
@@ -108,18 +108,21 @@
                                         placeholder="Enter description" name="description" value="{{ $dataUpdate->description }}">
                                 </div>
                                 
-                                <div class="mb-3">
+                                  <div class="mb-3">
                                     <label for="image">Image:</label>
-                                    <input class="form-control" type="file" id="image" name="image" >
-                                    <img src="{{ asset(path: 'assets/images/' . $dataUpdate->image) }}" height="200" width="200">
-
+                                    <input class="form-control" type="file" id="image" name="image">
+                                    <input class="form-control" type="hidden" id="image" name="old_image" value="{{ $dataUpdate->image }}">
+                                    <img src="{{ asset('assets/images/' . $dataUpdate->image) }}" height="200" width="200">
                                 </div>
+
                                 <div class="mb-3">
                                     <label for="video">Video:</label>
                                     <input class="form-control" type="file" id="video" name="video">
+                                    <input class="form-control" type="hidden" id="video" name="video" value="{{ $dataUpdate->video }}">
+
                                     <video width="320" height="240" controls>
                                         <source src="{{ asset('assets/video/' . $dataUpdate->video) }}" type="video/mp4">
-                                    </video>                                   
+                                    </video>
                                 </div>
                                 <button type="submit" class="btn btn-primary" id="update_btn" value="{{ $dataUpdate->id }}"  name="update_btn">Submit</button>
                             </form>

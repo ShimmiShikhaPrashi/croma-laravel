@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BannerModel extends Model
+class crud extends Model
 {
-    protected $table = 'banner';
+     protected $table = 'crud';
     protected $fillable = [
         'title',
         'description',
         'image',
-        'video',
-        'status',
+        'price',
+        'stock',
+        'color',
+        'size',
     ];
 }
