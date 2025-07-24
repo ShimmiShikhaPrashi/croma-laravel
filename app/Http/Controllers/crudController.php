@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\crud;
+use App\Models\BannerModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -11,9 +12,12 @@ class crudController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function welcome()
     {
-        //
+        $data = BannerModel::latest()->first();
+        $crudData = crud::all();
+
+        return view('welcome', compact('data','crudData'));
     }
 
     /**
@@ -21,7 +25,7 @@ class crudController extends Controller
      */
     public function crud()
     {
-        $crudData = crud::all();
+        $crudData = crud::whereNull('deleted_at')->get();
         return view('backend.crud', compact('crudData'));
     }
      public function addModal(Request $request)

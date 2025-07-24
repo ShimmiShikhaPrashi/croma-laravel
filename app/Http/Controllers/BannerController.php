@@ -25,13 +25,14 @@ class BannerController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function welcome()
-    {
-        // $data = BannerModel::all();
-        $data = BannerModel::latest()->first();
+    // this is using in crudController 
+    // public function welcome()
+    // {
+    //     // $data = BannerModel::all();
+    //     $data = BannerModel::latest()->first();
 
-        return view('welcome', compact('data'));
-    }
+    //     return view('welcome', compact(var_name: 'data'));
+    // }
     // fetch
     public function banner()
     {

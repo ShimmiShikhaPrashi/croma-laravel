@@ -461,9 +461,10 @@
       </ul><!-- End Portfolio Filters -->
 
       <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+        @foreach ($crudData as $val)
+         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+        <img src="{{ asset(path: 'assets/images/' . $val->image) }}" class="img-fluid" alt="">
 
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-        <img src="assets/img/portfolio/portfolio-portrait-1.webp" class="img-fluid" alt="">
         <div class="portfolio-info">
           <h4>App 1</h4>
           <p>Lorem ipsum, dolor sit</p>
@@ -472,9 +473,11 @@
           <a href="portfolio-details.html" title="More Details" class="details-link"><i
             class="bi bi-link-45deg"></i></a>
         </div>
-        </div><!-- End Portfolio Item -->
+        </div>
+        @endforeach
+       <!-- End Portfolio Item -->
 
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+        <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
         <img src="assets/img/portfolio/portfolio-1.webp" class="img-fluid" alt="">
         <div class="portfolio-info">
           <h4>Product 1</h4>
@@ -484,9 +487,10 @@
           <a href="portfolio-details.html" title="More Details" class="details-link"><i
             class="bi bi-link-45deg"></i></a>
         </div>
-        </div><!-- End Portfolio Item -->
+        </div> -->
+        <!-- End Portfolio Item -->
 
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+        <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
         <img src="assets/img/portfolio/portfolio-3.webp" class="img-fluid" alt="">
         <div class="portfolio-info">
           <h4>Branding 1</h4>
@@ -497,9 +501,10 @@
           <a href="portfolio-details.html" title="More Details" class="details-link"><i
             class="bi bi-link-45deg"></i></a>
         </div>
-        </div><!-- End Portfolio Item -->
+        </div> -->
+        <!-- End Portfolio Item -->
 
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+        <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
         <img src="assets/img/portfolio/portfolio-4.webp" class="img-fluid" alt="">
         <div class="portfolio-info">
           <h4>App 2</h4>
@@ -509,9 +514,10 @@
           <a href="portfolio-details.html" title="More Details" class="details-link"><i
             class="bi bi-link-45deg"></i></a>
         </div>
-        </div><!-- End Portfolio Item -->
+        </div> -->
+        <!-- End Portfolio Item -->
 
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+        <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
         <img src="assets/img/portfolio/portfolio-portrait-2.webp" class="img-fluid" alt="">
         <div class="portfolio-info">
           <h4>Product 2</h4>
@@ -522,9 +528,10 @@
           <a href="portfolio-details.html" title="More Details" class="details-link"><i
             class="bi bi-link-45deg"></i></a>
         </div>
-        </div><!-- End Portfolio Item -->
+        </div> -->
+        <!-- End Portfolio Item -->
 
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+        <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
         <img src="assets/img/portfolio/portfolio-portrait-3.webp" class="img-fluid" alt="">
         <div class="portfolio-info">
           <h4>Branding 2</h4>
@@ -535,9 +542,10 @@
           <a href="portfolio-details.html" title="More Details" class="details-link"><i
             class="bi bi-link-45deg"></i></a>
         </div>
-        </div><!-- End Portfolio Item -->
+        </div> -->
+        <!-- End Portfolio Item -->
 
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+        <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
         <img src="assets/img/portfolio/portfolio-7.webp" class="img-fluid" alt="">
         <div class="portfolio-info">
           <h4>App 3</h4>
@@ -547,8 +555,9 @@
           <a href="portfolio-details.html" title="More Details" class="details-link"><i
             class="bi bi-link-45deg"></i></a>
         </div>
-        </div><!-- End Portfolio Item -->
-
+        </div> -->
+        <!-- End Portfolio Item -->
+<!-- 
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
         <img src="assets/img/portfolio/portfolio-8.webp" class="img-fluid" alt="">
         <div class="portfolio-info">
@@ -558,10 +567,10 @@
           class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
           <a href="portfolio-details.html" title="More Details" class="details-link"><i
             class="bi bi-link-45deg"></i></a>
-        </div>
+        </div> -->
         </div><!-- End Portfolio Item -->
 
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+        <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
         <img src="assets/img/portfolio/portfolio-9.webp" class="img-fluid" alt="">
         <div class="portfolio-info">
           <h4>Branding 3</h4>
@@ -571,7 +580,7 @@
             class="bi bi-zoom-in"></i></a>
           <a href="portfolio-details.html" title="More Details" class="details-link"><i
             class="bi bi-link-45deg"></i></a>
-        </div>
+        </div> -->
         </div><!-- End Portfolio Item -->
 
       </div><!-- End Portfolio Container -->

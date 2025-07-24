@@ -147,7 +147,7 @@
                                         <div class="d-flex gap-2">
                                             <form method="post" action="/crudDelete">
                                                 @csrf
-                                                <button class="btn btn-danger btn-sm" name="crud_dlt_btn" value="{{ $val->id }}"><i class="fa fa-trash"></i></button>
+                                                <button class="btn btn-danger btn-sm" name="crud_dlt_btn" value="{{ $val->id }}" onclick="return confirm('Are you sure you want to delete this product?')"><i class="fa fa-trash"></i></button>
                                             </form>              
                                             <a href="{{ url('crudUpdate/'. $val->id) }}" class="btn btn-success btn-sm" target="_blank" value="{{ $val->id }}" name="update_btn"><i class="fa fa-pencil"></i></a>
                                         </div>
