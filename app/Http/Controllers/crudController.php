@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\crud;
+use App\Models\CrudDetails;
 use App\Models\BannerModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class crudController extends Controller
 {
@@ -25,7 +27,10 @@ class crudController extends Controller
      */
     public function crud()
     {
-        $crudData = crud::whereNull('deleted_at')->get();
+         $crudData = crud::with(['crudDetails', 'crudDetailsHasMany'])->whereNull('deleted_at')->get();
+        // $crudData = DB::table('crud')->with('crudDetails')->whereNull('deleted_at')->get();
+        // echo "<pre/>";
+        // print_r($crudData);die();
         return view('backend.crud', compact('crudData'));
     }
      public function addModal(Request $request)

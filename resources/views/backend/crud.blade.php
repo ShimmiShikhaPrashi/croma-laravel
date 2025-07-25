@@ -128,6 +128,8 @@
                                         <th>In stock</th>
                                         <th>Color</th>
                                         <th>Size</th>
+                                        <th>Detail Title</th>
+                                        <th>Detail Title Has Many</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -143,7 +145,16 @@
                                         <td>{{ $val->stock }}</td>
                                         <td>{{ $val->color }}</td>
                                         <td>{{ $val->size }}</td>
-                                    <td>
+                                        <td>{{ $val->crudDetails->title ?? 'no data found'}}</td>
+                                        <td>                                           
+                                           {{ $val->crudDetailsHasMany->isEmpty() ? 'no data found' : '' }}
+                                            <ul>
+                                                @foreach($val->crudDetailsHasMany as $detail)
+                                                    <li>{{ $detail->title ?? 'Untitled' }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+                                        <td>
                                         <div class="d-flex gap-2">
                                             <form method="post" action="/crudDelete">
                                                 @csrf
