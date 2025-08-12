@@ -25,4 +25,9 @@ class crud extends Model
      public function crudDetailsHasMany(){
         return $this->hasMany(CrudDetails::class);
     }
+      public function crudDetailsBelongsTo(){
+        return $this->belongsTo(CrudDetails::class);
+    }
+   
+
 }

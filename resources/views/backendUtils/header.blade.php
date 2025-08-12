@@ -290,7 +290,7 @@
                   class="dropdown-menu dropdown-menu-end user-dd animated"
                   aria-labelledby="navbarDropdown"
                 >
-                  <a class="dropdown-item" href="javascript:void(0)"
+                  <a class="dropdown-item" href="{{ route('profile') }}"
                     ><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a
                   >
                   <a class="dropdown-item" href="javascript:void(0)"

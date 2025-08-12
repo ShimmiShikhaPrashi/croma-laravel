@@ -29,8 +29,9 @@ class crudController extends Controller
     {
          $crudData = crud::with(['crudDetails', 'crudDetailsHasMany'])->whereNull('deleted_at')->get();
         // $crudData = DB::table('crud')->with('crudDetails')->whereNull('deleted_at')->get();
+        //  $crudData1 = CrudDetails::with(['crudDetailsBelongsTo'])->get();
         // echo "<pre/>";
-        // print_r($crudData);die();
+        // print_r($crudData1);die();
         return view('backend.crud', compact('crudData'));
     }
      public function addModal(Request $request)
@@ -78,7 +79,7 @@ class crudController extends Controller
     }
 
     
-    public function crudUpdate(Request $request, $id){
+    public function crudUpdate($id){
     $crudUpdate = crud::where('id',$id)->first();
     return view('backend.crudUpdate', compact('crudUpdate'));
     }

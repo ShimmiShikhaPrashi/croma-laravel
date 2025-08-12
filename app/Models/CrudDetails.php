@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\crud;
 
 class CrudDetails extends Model
 {
@@ -12,5 +13,9 @@ class CrudDetails extends Model
         'title',
         'description',
     ];
+
+    //    public function crudDetailsBelongsTo(){
+    //     return $this->belongsTo(crud::class);
+    // }
   
 }

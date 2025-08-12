@@ -130,6 +130,7 @@
                                         <th>Size</th>
                                         <th>Detail Title</th>
                                         <th>Detail Title Has Many</th>
+                                        <th>CrudDetailsBelongsTo</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -153,7 +154,7 @@
                                                     <li>{{ $detail->title ?? 'Untitled' }}</li>
                                                 @endforeach
                                             </ul>
-                                        </td>
+                                        </td>                                     
                                         <td>
                                         <div class="d-flex gap-2">
                                             <form method="post" action="/crudDelete">
@@ -169,10 +170,12 @@
                             </table>
                         </div>
                     </div>
+                    
                 </div>
             </div>
 
         </div>
+
 
         <!-- The Modal -->
         <div id="myModal" class="modal">

@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('crud', function (Blueprint $table) {
+        Schema::table(table: 'crud', callback: function (Blueprint $table) {
             
         });
     }
