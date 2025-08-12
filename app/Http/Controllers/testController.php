@@ -40,4 +40,9 @@ class testController extends Controller
 
     dd($post->toArray());
     }
+    public function subscribe()
+    {
+        return view('subscribe');
+    }
+
 }

@@ -6,7 +6,10 @@ use App\Models\BannerModel;
 use App\Models\CrudTest;
 use App\Models\testModel;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use  Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ProfileUpdateMail;
 class BannerController extends Controller
 {
     /**
@@ -151,7 +154,7 @@ class BannerController extends Controller
     {
         $id = $request->dlt_btn;
         BannerModel::where('id', $id)->delete();
-        return redirect('/banner');
+        return redirect('/banner')->with('error', 'Banner deleted successfully');
     }
 
     // it is used to pass id in update button to open edit page with one id
@@ -252,5 +255,45 @@ class BannerController extends Controller
     ]);
     return redirect('banner');
     }
+
+    public function profile(){
+         $user = Auth::user();
+        return view('backend.profile', compact('user'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = auth()->user();
+
+       $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+    ]);
+
+    if ($request->filled('old_password') || $request->filled('new_password')) {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|string|min:6|confirmed',
+        ]);
+
+        // old password matches
+        if (!Hash::check($request->old_password, $user->password)) {
+            return back()->with(['old_password' => 'Old password is incorrect']);
+        }
+
+        // Update password
+        $user->password = Hash::make($request->new_password);
+    }
+
+    $user = Auth::user();
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->save();
+
+    Mail::to('shimmikachhap@gmail.com')->send(new ProfileUpdateMail($user));
+
+    return redirect('profile')->with('success', 'Profile updated successfully!');
+    }
+   
 
 }
