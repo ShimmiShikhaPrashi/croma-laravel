@@ -3,6 +3,7 @@
 use App\Http\Controllers\BannerController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ExcelUploadController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -101,3 +102,6 @@ Route::middleware(['auth'])->post('/subscribe-action', function (Request $reques
 Route::middleware(['auth'])->get('/profile', [BannerController::class, 'profile'])->name('profile');
 
 Route::put('/profile', [BannerController::class, 'updateProfile'])->name('profile.update');
+
+Route::get('excel-upload', [ExcelUploadController::class, 'index']);
+Route::post('excel-upload', [ExcelUploadController::class, 'upload'])->name('excel.upload');
